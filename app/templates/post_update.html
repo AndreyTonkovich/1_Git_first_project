@@ -1,0 +1,54 @@
+{% extends 'boot.html' %}
+
+{% block content %}
+<h1>{% block title %} Редактирование {% endblock %}</h1>
+
+<form method="post">
+    <div class="field">
+        <div class="control">
+        <label for="intro">Заголовок</label>
+        <textarea name="title" placeholder="Заголовок"
+                  class="form-control">{{ request.form['title'] or n['title'] }}</textarea>
+        </div>
+    </div>
+    
+
+    <div class="field">
+        <div class="control">
+        <label for="intro">Анонс</label>
+        <textarea name="intro" placeholder="Анонс"
+                  class="form-control">{{ request.form['intro'] or n['intro'] }}</textarea>
+        </div>
+    </div>
+
+    <div class="field">
+        <div class="control">
+            <label for="text">Статья</label>
+            <textarea name="text" placeholder="Статья"
+                      class="form-control">{{ request.form['text'] or n['text'] }}</textarea>
+        </div>
+    </div>
+    <div class="field">
+        <div class="control">
+        <button type="submit" class="btn btn-success">Сохранить</button>
+        </div>
+    </div>
+</form>
+<hr>
+{% endblock %}
+
+<form method="POST" >
+    
+    <div class="field">
+        <div class="control">
+            <input class="input is-large" type="text" name="intro" placeholder="Краткое содержание" autofocus="">
+        </div>
+    </div>
+    <div class="field">
+        <div class="control">
+            <input class="input is-large" type="text" name="text" placeholder="Текст статьи" autofocus="">
+        </div>
+    </div>
+    <button class="button is-block is-info is-large is-fullwidth">Сохранить</button>
+    
+</form>

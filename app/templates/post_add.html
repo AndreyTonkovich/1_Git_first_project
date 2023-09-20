@@ -1,0 +1,28 @@
+{% extends 'boot.html' %}
+
+
+{% block content %}
+<h1>{% block title %} Создание нового поста {% endblock %}</h1>
+{{ super() }}
+{% for cat, msg in get_flashed_messages(True) %}
+<div class="flash {{cat}}">{{msg}}</div>
+{% endfor %}
+<form method="POST" action="/post_add">
+    <div class="field">
+        <div class="control">
+            <input class="input is-large" type="text" name="title" placeholder="Заголовок статьи" autofocus="">
+        </div>
+    </div>
+    <div class="field">
+        <div class="control">
+            <input class="input is-large" type="text" name="intro" placeholder="Краткое содержание" autofocus="">
+        </div>
+    </div>
+    <div class="field">
+        <div class="control">
+            <input class="input is-large" type="text" name="text" placeholder="Текст статьи" autofocus="">
+        </div>
+    </div>
+    <button class="button is-block is-info is-large is-fullwidth">Сохранить</button>
+</form>
+{% endblock %}

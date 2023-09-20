@@ -1,0 +1,23 @@
+{% extends "base.html" %} {% block content %}
+<div class="table-responsive">
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr class="active">
+        <th>Имя</th>
+        <th>Email</th>
+        <th>Пароль</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% if n|length > 0 %}{% for post in n %}
+      <tr>
+        <th>{{ post['name'] }}</th>
+        <th>{{ post['email'] }}</th>
+        <th>{{ post['password'] }}</th>
+      </tr>
+      {% endfor %} {% else %} У нас еще нет пользователей {% endif %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

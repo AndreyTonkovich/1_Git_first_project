@@ -1,0 +1,20 @@
+{% extends 'boot.html' %} {% block content %}
+<h1>{% block title %} Выбранная статья {% endblock %}</h1>
+
+<a>
+  <h2>{{ n['text'] }}</h2>
+  <h3>Дата: {{ n['date'] }}</h3>
+</a>
+<span class="badge badge-primary">{{ n['created'] }}</span>
+<a href="/posts">
+  <span class="btn btn-default">Вернуться</span>
+</a>
+<a href="/posts/{{ n.id }}/update">
+  <span class="btn btn-default">Edit</span>
+</a>
+<a href="/posts/{{ n.id }}/del">
+  <span class="btn btn-danger">Delete</span>
+</a>
+<hr />
+
+{% endblock %}

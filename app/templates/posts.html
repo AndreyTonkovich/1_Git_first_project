@@ -1,0 +1,17 @@
+{% extends 'boot.html' %} {% block content %}
+<h1>{% block title %} Все статьи на сайте {% endblock %}</h1>
+{% if n|length > 0 %} {% for post in n %}
+
+<a href="/posts/{{ post.id }}">
+  <h2>{{ post['title'] }}</h2>
+  <h3>{{ post['intro'] }}</h3>
+  <h4>Дата: {{ post['date'] }}</h4>
+</a>
+<span class="badge badge-primary">{{ post['created'] }}</span>
+<hr />
+
+{% endfor %} {% else %} У нас еще нет статей на сайте {% endif %}
+<a href="/post_add">
+  <span class="btn btn-default">Добавить новую статью</span>
+</a>
+{% endblock %}
